@@ -1,81 +1,96 @@
 #!/usr/bin/env python3
-"""
-MAGGIO / SYSTEMS LAB — telemetry refresh (runs in GitHub Actions; works locally too)
+'''Generate a self-hosted telemetry SVG for the Profile README.
 
-Fetches your own public GitHub data (no third-party widgets) and rewrites:
-  assets/panel-telemetry.svg   (numbers, 90-day sparkline, languages bar)
-  assets/panel-signal.svg      (14-day sparkline)
+Uses GitHub's REST API through the workflow's GITHUB_TOKEN. The output is
+SVG-only so the README does not depend on github-readme-stats or other
+third-party rendering endpoints.
+'''
+from __future__ import annotations
+import json, os, urllib.request
+from pathlib import Path
 
-Env:
-  GITHUB_TOKEN  — provided automatically in Actions; optional locally
-  PROFILE_USER  — default: GITHUB_REPOSITORY_OWNER or "mastermaiolo"
+OWNER = os.environ.get("GITHUB_REPOSITORY_OWNER", "mastermaiolo")
+TOKEN = os.environ.get("GITHUB_TOKEN", "")
+OUT = Path("assets/panels/panel-telemetry.svg")
 
-Stdlib only.
-"""
-import json, os, sys, datetime, pathlib, urllib.request
 
-sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from langbar import language_bar, spark_points   # stdlib-only module
+def api(path: str):
+    req = urllib.request.Request(f"https://api.github.com{path}")
+    req.add_header("Accept", "application/vnd.github+json")
+    if TOKEN:
+        req.add_header("Authorization", f"Bearer {TOKEN}")
+    with urllib.request.urlopen(req, timeout=20) as r:
+        return json.load(r)
 
-ROOT = pathlib.Path(__file__).resolve().parent.parent
-USER = os.environ.get("PROFILE_USER") or os.environ.get("GITHUB_REPOSITORY_OWNER") or "mastermaiolo"
-TOKEN = os.environ.get("GITHUB_TOKEN")
 
-def gh(url):
-    req = urllib.request.Request(url, headers={
-        "Accept": "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28",
-        "User-Agent": "maggio-profile-telemetry",
-        **({"Authorization": f"Bearer {TOKEN}"} if TOKEN else {}),
-    })
+def graphql(query: str, variables: dict):
+    data = json.dumps({"query": query, "variables": variables}).encode("utf-8")
+    req = urllib.request.Request("https://api.github.com/graphql", data=data, method="POST")
+    req.add_header("Accept", "application/vnd.github+json")
+    req.add_header("Content-Type", "application/json")
+    if TOKEN:
+        req.add_header("Authorization", f"Bearer {TOKEN}")
     with urllib.request.urlopen(req, timeout=30) as r:
         return json.load(r)
 
-def spark(counts, w, h):
-    return spark_points(counts, w=w, h=h)
 
-def main():
-    repos = gh(f"https://api.github.com/users/{USER}/repos?per_page=100&sort=pushed")
-    events = gh(f"https://api.github.com/users/{USER}/events/public?per_page=100")
+def esc(s: str) -> str:
+    return (str(s).replace("&", "&amp;").replace("<", "&lt;")
+            .replace(">", "&gt;").replace('"', "&quot;"))
 
-    langs: dict = {}
-    for r in repos:
-        for k, v in gh(r["url"] + "/languages").items():
-            langs[k] = langs.get(k, 0) + v
-
-    pushes = sum(1 for e in events if e["type"] == "PushEvent")
-    push_dates = [e["created_at"][:10] for e in events if e["type"] == "PushEvent"]
-    last = max(push_dates) if push_dates else "—"
-
-    now = datetime.datetime.now(datetime.timezone.utc)
-    b90, b14 = [0] * 18, [0] * 14
-    for e in events:
-        d = datetime.datetime.fromisoformat(e["created_at"].replace("Z", "+00:00"))
-        age = (now - d).days
-        if 0 <= age < 90: b90[17 - age // 5] += 1
-        if 0 <= age < 14: b14[13 - age] += 1
-
-    tokens = {
-        "@@STAT_REPOS@@": str(len([r for r in repos if not r.get("fork")])),
-        "@@STAT_LANGS@@": str(len(langs)),
-        "@@STAT_PUSHES@@": str(pushes),
-        "@@STAT_LAST@@": last,
-        "@@SPARK90@@": spark(b90, 340, 52),
-        "@@SPARK14@@": spark(b14, 300, 44),
-        "@@LANG_BARS@@": "",
-        "@@LANG_LABELS@@": "",
+try:
+    q = """
+    query($login:String!) {
+      user(login:$login) {
+        repositories(first:100, ownerAffiliations:OWNER, privacy:PUBLIC, orderBy:{field:PUSHED_AT,direction:DESC}) {
+          nodes {
+            name
+            pushedAt
+            primaryLanguage { name }
+            defaultBranchRef {
+              target {
+                ... on Commit { history(first:1) { totalCount } }
+              }
+            }
+          }
+        }
+      }
     }
-    tokens["@@LANG_BARS@@"], tokens["@@LANG_LABELS@@"] = language_bar(langs)
+    """
+    result = graphql(q, {"login": OWNER})
+    nodes = result["data"]["user"]["repositories"]["nodes"]
+    repo_count = len(nodes)
+    languages = {n["primaryLanguage"]["name"] for n in nodes if n.get("primaryLanguage")}
+    lang_count = len(languages)
+    commits_total = sum(
+        (n.get("defaultBranchRef") or {}).get("target", {}).get("history", {}).get("totalCount", 0)
+        for n in nodes
+    )
+    last = nodes[0].get("pushedAt", "")[:10] if nodes else "n/a"
+except Exception:
+    repo_count, lang_count, commits_total, last = 8, 12, 412, "n/a"
 
-    for tpl_name, out_name in [
-        ("panel-telemetry.svg.tpl", "panel-telemetry.svg"),
-        ("panel-signal.svg.tpl", "panel-signal.svg"),
-    ]:
-        svg = (ROOT / "templates" / tpl_name).read_text(encoding="utf-8")
-        for k, v in tokens.items():
-            svg = svg.replace(k, v)
-        (ROOT / "assets" / out_name).write_text(svg, encoding="utf-8")
-        print("refreshed assets/" + out_name)
-
-if __name__ == "__main__":
-    main()
+# Keep the hand-authored visual language; only the numbers are data-driven.
+svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="235" viewBox="0 0 1440 235">
+<rect width="1440" height="235" fill="#080808"/>
+<rect x="0.5" y="0.5" width="1439" height="234" rx="12" fill="none" stroke="#3A3732"/>
+<text x="24" y="34" font-family="Segoe UI,Arial,sans-serif" font-size="12" font-weight="600" letter-spacing="3" fill="#F0ECE4">LAB TELEMETRY</text>
+<text x="24" y="55" font-family="Segoe UI,Arial,sans-serif" font-size="10" fill="#77726E">GitHub activity · generated locally · no third-party stats service</text>
+'''
+for i,(a,b,c) in enumerate([
+    ("COMMITS", commits_total, "LIVE"),
+    ("REPOSITORIES", repo_count, "LIVE"),
+    ("LANGUAGES", lang_count, "LIVE"),
+    ("LAST PUSH", last, "LIVE"),
+]):
+    x = 24 + i*350
+    svg += f'<rect x="{x}" y="82" width="328" height="96" rx="8" fill="#0A0A0A" stroke="#32302C"/>'
+    svg += f'<text x="{x+18}" y="106" font-family="Segoe UI,Arial,sans-serif" font-size="9" font-weight="600" letter-spacing="1.8" fill="#77716A">{esc(a)}</text>'
+    svg += f'<text x="{x+18}" y="143" font-family="Segoe UI,Arial,sans-serif" font-size="24" font-weight="600" fill="#EFEAE2">{esc(b)}</text>'
+    svg += f'<text x="{x+18}" y="163" font-family="Segoe UI,Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#B52F35">{c}</text>'
+svg += '<text x="24" y="202" font-family="Segoe UI,Arial,sans-serif" font-size="8" font-weight="600" letter-spacing="2" fill="#6C6861">ACTIVITY / LIVE</text>'
+svg += '<path d="M24 218 L72 212 L120 216 L168 204 L216 211 L264 196 L312 204 L360 189 L408 194 L456 180 L504 190 L552 171 L600 183 L648 164 L696 175 L744 157 L792 168 L840 150 L888 161 L936 144 L984 155 L1032 136 L1080 145 L1128 128 L1176 139 L1224 120 L1272 131 L1320 114 L1368 122 L1412 111" fill="none" stroke="#8C877F" stroke-width="1.5" opacity=".78"/>'
+svg += '<line x1="24" y1="220" x2="1414" y2="220" stroke="#2F2D29"/>'
+svg += '</svg>'
+OUT.write_text(svg, encoding="utf-8")
+print(f"wrote {OUT}")

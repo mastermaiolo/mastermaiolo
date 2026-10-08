@@ -1,76 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 560" font-family="ui-monospace,'SF Mono',Menlo,Consolas,monospace">
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="235" viewBox="0 0 1440 235" role="img">
   <defs>
-    <linearGradient id="areaG" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#6b6b73" stop-opacity="0.25"/>
-      <stop offset="1" stop-color="#6b6b73" stop-opacity="0"/>
-    </linearGradient>
+    <filter id="blur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
+    <filter id="blur2" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3"/></filter>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/></filter>
+    
   </defs>
-
-  <rect width="1600" height="560" fill="#0d1117"/>
-
-  <rect x="20" y="32" width="3.5" height="18" fill="#b3372c"/>
-  <text x="34" y="46" font-size="15" letter-spacing="4" fill="#dcdce2">LAB TELEMETRY</text>
-  <text x="34" y="68" font-size="12" letter-spacing="1.5" fill="#5c5c64">github activity · public signal · no third-party widgets</text>
-  <circle cx="1320" cy="42" r="3" fill="#d43a2f">
-    <animate attributeName="opacity" values="1;0.3;1" dur="2.8s" repeatCount="indefinite"/>
-  </circle>
-  <text x="1580" y="46" text-anchor="end" font-size="10.5" letter-spacing="2" fill="#3f3f46">REFRESHED VIA GITHUB ACTIONS</text>
-  <line x1="20" y1="88" x2="1580" y2="88" stroke="#1e1e22"/>
-
-  <!-- stat cells -->
-  <g>
-    <text x="40" y="132" font-size="12" letter-spacing="2.5" fill="#55555d">PUBLIC REPOSITORIES</text>
-    <text x="40" y="206" font-family="Georgia,'Times New Roman',serif" font-size="72" fill="#e8e6e2">9</text>
-    <text x="40" y="240" font-size="12" letter-spacing="1.5" fill="#5c5c64">latest · hyprlink (rust)</text>
-
-    <line x1="400" y1="112" x2="400" y2="252" stroke="#1e1e22"/>
-
-    <text x="440" y="132" font-size="12" letter-spacing="2.5" fill="#55555d">LANGUAGES</text>
-    <text x="440" y="206" font-family="Georgia,'Times New Roman',serif" font-size="72" fill="#e8e6e2">13</text>
-    <text x="440" y="240" font-size="12" letter-spacing="1.5" fill="#5c5c64">rust · python · typescript lead</text>
-
-    <line x1="800" y1="112" x2="800" y2="252" stroke="#1e1e22"/>
-
-    <text x="840" y="132" font-size="12" letter-spacing="2.5" fill="#55555d">PUSHES / 90 DAYS</text>
-    <text x="840" y="206" font-family="Georgia,'Times New Roman',serif" font-size="72" fill="#e8e6e2">15</text>
-    <text x="840" y="240" font-size="12" letter-spacing="1.5" fill="#5c5c64">public events window</text>
-
-    <line x1="1200" y1="112" x2="1200" y2="252" stroke="#1e1e22"/>
-
-    <text x="1240" y="132" font-size="12" letter-spacing="2.5" fill="#55555d">LAST SIGNAL</text>
-    <text x="1240" y="200" font-family="Georgia,'Times New Roman',serif" font-size="44" fill="#e8e6e2">2026-10-07</text>
-    <text x="1240" y="240" font-size="12" letter-spacing="1.5" fill="#5c5c64">push → main</text>
-  </g>
-  <line x1="20" y1="272" x2="1580" y2="272" stroke="#1e1e22"/>
-
-  <!-- activity sparkline -->
-  <text x="40" y="312" font-size="12" letter-spacing="2.5" fill="#55555d">ACTIVITY / 90 DAYS</text>
-  <text x="1560" y="312" text-anchor="end" font-size="10.5" letter-spacing="2" fill="#3f3f46">events · pushes · releases</text>
-  <g transform="translate(40 330) scale(4.47 1.55)">
-    <polygon points="2.0,50.0 21.8,50.0 41.5,50.0 61.3,50.0 81.1,50.0 100.8,50.0 120.6,50.0 140.4,50.0 160.1,50.0 179.9,50.0 199.6,50.0 219.4,50.0 239.2,50.0 258.9,50.0 278.7,8.0 298.5,38.3 318.2,50.0 338.0,38.3 340,52 0,52" fill="url(#areaG)" stroke="none"/>
-    <polyline points="2.0,50.0 21.8,50.0 41.5,50.0 61.3,50.0 81.1,50.0 100.8,50.0 120.6,50.0 140.4,50.0 160.1,50.0 179.9,50.0 199.6,50.0 219.4,50.0 239.2,50.0 258.9,50.0 278.7,8.0 298.5,38.3 318.2,50.0 338.0,38.3" fill="none" stroke="#8a8a93" stroke-width="1.1"/>
-  </g>
-  <line x1="40" y1="412" x2="1580" y2="412" stroke="#1e1e22"/>
-  <g fill="#55555d" font-size="10.5" letter-spacing="1.5">
-    <text x="40" y="434">−90d</text>
-    <text x="800" y="434" text-anchor="middle">−45d</text>
-    <text x="1580" y="434" text-anchor="end">now</text>
-  </g>
-
-  <!-- languages bar (real byte share, /languages api) -->
-  <text x="40" y="478" font-size="12" letter-spacing="2.5" fill="#55555d">LANGUAGES / BYTES</text>
-    <g>
-    <rect x="40" y="492" width="437" height="10" fill="#e8e6e2"/>
-    <rect x="481" y="492" width="424" height="10" fill="#a5a5ad"/>
-    <rect x="909" y="492" width="358" height="10" fill="#6b6b73"/>
-    <rect x="1271" y="492" width="79" height="10" fill="#484850"/>
-    <rect x="1354" y="492" width="206" height="10" fill="#33333a"/>
-  </g>
-    <g font-size="12" letter-spacing="1.5">
-    <text x="40" y="530" fill="#e8e6e2">29% <tspan fill="#8a8a93">RUST</tspan></text>
-    <text x="481" y="530" fill="#a5a5ad">28% <tspan fill="#8a8a93">PYTHON</tspan></text>
-    <text x="909" y="530" fill="#6b6b73">24% <tspan fill="#8a8a93">TYPESCRIPT</tspan></text>
-    <text x="1271" y="530" fill="#484850">5% <tspan fill="#8a8a93">SHELL</tspan></text>
-    <text x="1560" y="530" text-anchor="end" fill="#55555d">14% OTHER</text>
-  </g>
+  <rect x="0" y="0" width="1440" height="230" fill="#080808" stroke="#3A3732" stroke-width="1" rx="12" opacity="1"/>
+<text x="24" y="34" font-family="Segoe UI,Arial,sans-serif" font-size="12px" font-weight="600" letter-spacing="3.0px" fill="#F0ECE4" text-anchor="start" opacity="1" >LAB TELEMETRY</text>
+<text x="24" y="55" font-family="Segoe UI,Arial,sans-serif" font-size="10px" font-weight="400" letter-spacing="0.4px" fill="#77726E" text-anchor="start" opacity="1" >GitHub activity · generated locally · no third-party stats service</text>
+<rect x="24" y="82" width="328" height="96" fill="#0A0A0A" stroke="#32302C" stroke-width="1" rx="8" opacity="1"/>
+<text x="42" y="106" font-family="Segoe UI,Arial,sans-serif" font-size="9px" font-weight="600" letter-spacing="1.8px" fill="#77716A" text-anchor="start" opacity="1" >COMMITS</text>
+<text x="42" y="143" font-family="Segoe UI,Arial,sans-serif" font-size="24px" font-weight="600" letter-spacing="1.2px" fill="#EFEAE2" text-anchor="start" opacity="1" >412</text>
+<text x="42" y="163" font-family="Segoe UI,Arial,sans-serif" font-size="9px" font-weight="700" letter-spacing="1.5px" fill="#B52F35" text-anchor="start" opacity="1" >+12%</text>
+<rect x="374" y="82" width="328" height="96" fill="#0A0A0A" stroke="#32302C" stroke-width="1" rx="8" opacity="1"/>
+<text x="392" y="106" font-family="Segoe UI,Arial,sans-serif" font-size="9px" font-weight="600" letter-spacing="1.8px" fill="#77716A" text-anchor="start" opacity="1" >REPOSITORIES</text>
+<text x="392" y="143" font-family="Segoe UI,Arial,sans-serif" font-size="24px" font-weight="600" letter-spacing="1.2px" fill="#EFEAE2" text-anchor="start" opacity="1" >8</text>
+<text x="392" y="163" font-family="Segoe UI,Arial,sans-serif" font-size="9px" font-weight="700" letter-spacing="1.5px" fill="#77716A" text-anchor="start" opacity="1" >+0%</text>
+<rect x="724" y="82" width="328" height="96" fill="#0A0A0A" stroke="#32302C" stroke-width="1" rx="8" opacity="1"/>
+<text x="742" y="106" font-family="Segoe UI,Arial,sans-serif" font-size="9px" font-weight="600" letter-spacing="1.8px" fill="#77716A" text-anchor="start" opacity="1" >LANGUAGES</text>
+<text x="742" y="143" font-family="Segoe UI,Arial,sans-serif" font-size="24px" font-weight="600" letter-spacing="1.2px" fill="#EFEAE2" text-anchor="start" opacity="1" >12</text>
+<text x="742" y="163" font-family="Segoe UI,Arial,sans-serif" font-size="9px" font-weight="700" letter-spacing="1.5px" fill="#B52F35" text-anchor="start" opacity="1" >+2</text>
+<rect x="1074" y="82" width="328" height="96" fill="#0A0A0A" stroke="#32302C" stroke-width="1" rx="8" opacity="1"/>
+<text x="1092" y="106" font-family="Segoe UI,Arial,sans-serif" font-size="9px" font-weight="600" letter-spacing="1.8px" fill="#77716A" text-anchor="start" opacity="1" >LAST ACTIVE</text>
+<text x="1092" y="143" font-family="Segoe UI,Arial,sans-serif" font-size="24px" font-weight="600" letter-spacing="1.2px" fill="#EFEAE2" text-anchor="start" opacity="1" >2h ago</text>
+<text x="1092" y="163" font-family="Segoe UI,Arial,sans-serif" font-size="9px" font-weight="700" letter-spacing="1.5px" fill="#B52F35" text-anchor="start" opacity="1" >●</text>
+<text x="24" y="202" font-family="Segoe UI,Arial,sans-serif" font-size="8px" font-weight="600" letter-spacing="2.0px" fill="#6C6861" text-anchor="start" opacity="1" >ACTIVITY / 14 DAYS</text>
+<path d="M M 24 218 L 72 212 L 120 216 L 168 204 L 216 211 L 264 196 L 312 204 L 360 189 L 408 194 L 456 180 L 504 190 L 552 171 L 600 183 L 648 164 L 696 175 L 744 157 L 792 168 L 840 150 L 888 161 L 936 144 L 984 155 L 1032 136 L 1080 145 L 1128 128 L 1176 139 L 1224 120 L 1272 131 L 1320 114 L 1368 122 L 1412 111" fill="none" stroke="#8C877F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.78"/>
+<line x1="24" y1="220" x2="1414" y2="220" stroke="#2F2D29" stroke-width="1" opacity="0.7"/>
 </svg>

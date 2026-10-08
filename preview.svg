@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="2535" viewBox="0 0 1440 2535" role="img">
+  <defs>
+    <filter id="blur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
+    <filter id="blur2" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3"/></filter>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/></filter>
+    
+  </defs>
+  <rect x="0" y="0" width="1440" height="2535" fill="#050505" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<image href="hero.svg" x="0" y="0" width="1440" height="360" preserveAspectRatio="none"/>
+<image href="section-systems.svg" x="0" y="360" width="1440" height="94" preserveAspectRatio="none"/>
+<image href="projects/card-hyprvision.svg" x="0" y="454" width="700" height="322" preserveAspectRatio="none"/>
+<image href="projects/card-hyprai.svg" x="740" y="454" width="700" height="322" preserveAspectRatio="none"/>
+<image href="projects/card-vinho.svg" x="0" y="786" width="700" height="322" preserveAspectRatio="none"/>
+<image href="projects/card-heishi.svg" x="740" y="786" width="700" height="322" preserveAspectRatio="none"/>
+<image href="panels/panel-philosophy.svg" x="0" y="1108" width="900" height="300" preserveAspectRatio="none"/>
+<image href="panels/panel-signal.svg" x="940" y="1108" width="500" height="260" preserveAspectRatio="none"/>
+<image href="panels/panel-telemetry.svg" x="0" y="1408" width="1440" height="235" preserveAspectRatio="none"/>
+<image href="strip-visuals.svg" x="0" y="1643" width="1440" height="290" preserveAspectRatio="none"/>
+<image href="panels/panel-lab-notes.svg" x="0" y="1933" width="900" height="270" preserveAspectRatio="none"/>
+<image href="panels/panel-architecture.svg" x="0" y="2203" width="1440" height="220" preserveAspectRatio="none"/>
+<image href="footer.svg" x="0" y="2423" width="1440" height="112" preserveAspectRatio="none"/>
+</svg>

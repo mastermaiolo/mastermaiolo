@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="270" viewBox="0 0 900 270" role="img">
+  <defs>
+    <filter id="blur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
+    <filter id="blur2" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3"/></filter>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/></filter>
+    
+  </defs>
+  <rect x="0" y="0" width="900" height="270" fill="#080808" stroke="#3A3732" stroke-width="1" rx="12" opacity="1"/>
+<rect x="22" y="24" width="2" height="82" fill="#B52F35" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="48" y="44" font-family="Segoe UI,Arial,sans-serif" font-size="12px" font-weight="600" letter-spacing="3.0px" fill="#EFEAE3" text-anchor="start" opacity="1" >LAB NOTES</text>
+<text x="48" y="67" font-family="Segoe UI,Arial,sans-serif" font-size="10px" font-weight="500" letter-spacing="0.7px" fill="#77726E" text-anchor="start" opacity="1" >the experimental layer</text>
+<text x="48" y="105" font-family="Segoe UI,Arial,sans-serif" font-size="11px" font-weight="700" letter-spacing="0px" fill="#B52F35" text-anchor="start" opacity="1" >→</text>
+<text x="72" y="105" font-family="Segoe UI,Arial,sans-serif" font-size="11px" font-weight="500" letter-spacing="0.7px" fill="#D7D0C7" text-anchor="start" opacity="1" >shaders</text>
+<text x="48" y="133" font-family="Segoe UI,Arial,sans-serif" font-size="11px" font-weight="700" letter-spacing="0px" fill="#B52F35" text-anchor="start" opacity="1" >→</text>
+<text x="72" y="133" font-family="Segoe UI,Arial,sans-serif" font-size="11px" font-weight="500" letter-spacing="0.7px" fill="#D7D0C7" text-anchor="start" opacity="1" >automation</text>
+<text x="48" y="161" font-family="Segoe UI,Arial,sans-serif" font-size="11px" font-weight="700" letter-spacing="0px" fill="#B52F35" text-anchor="start" opacity="1" >→</text>
+<text x="72" y="161" font-family="Segoe UI,Arial,sans-serif" font-size="11px" font-weight="500" letter-spacing="0.7px" fill="#D7D0C7" text-anchor="start" opacity="1" >interface systems</text>
+<text x="48" y="189" font-family="Segoe UI,Arial,sans-serif" font-size="11px" font-weight="700" letter-spacing="0px" fill="#B52F35" text-anchor="start" opacity="1" >→</text>
+<text x="72" y="189" font-family="Segoe UI,Arial,sans-serif" font-size="11px" font-weight="500" letter-spacing="0.7px" fill="#D7D0C7" text-anchor="start" opacity="1" >AI-assisted tooling</text>
+<text x="48" y="217" font-family="Segoe UI,Arial,sans-serif" font-size="11px" font-weight="700" letter-spacing="0px" fill="#B52F35" text-anchor="start" opacity="1" >→</text>
+<text x="72" y="217" font-family="Segoe UI,Arial,sans-serif" font-size="11px" font-weight="500" letter-spacing="0.7px" fill="#D7D0C7" text-anchor="start" opacity="1" >strange prototypes</text>
+<path d="M620 237 C674 202 694 167 732 145 C771 123 798 96 832 62" fill="none" stroke="#8E8981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+<path d="M687 198 C714 209 741 219 762 224 C785 230 802 241 818 257" fill="none" stroke="#B52F35" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+<circle cx="751" cy="151" r="38" fill="#B52F35" stroke="none" stroke-width="0" opacity="0.09"/>
+<text x="816" y="208" font-family="SimSun, Noto Serif CJK SC, serif" font-size="16px" font-weight="600" letter-spacing="2px" fill="#B52F35" text-anchor="start" opacity="1" >黑食</text>
+</svg>
