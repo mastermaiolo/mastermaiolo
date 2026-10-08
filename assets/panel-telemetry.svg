@@ -20,13 +20,13 @@
   <!-- stat cells -->
   <g>
     <text x="40" y="132" font-size="12" letter-spacing="2.5" fill="#55555d">PUBLIC REPOSITORIES</text>
-    <text x="40" y="206" font-family="Georgia,'Times New Roman',serif" font-size="72" fill="#e8e6e2">8</text>
+    <text x="40" y="206" font-family="Georgia,'Times New Roman',serif" font-size="72" fill="#e8e6e2">9</text>
     <text x="40" y="240" font-size="12" letter-spacing="1.5" fill="#5c5c64">latest · hyprlink (rust)</text>
 
     <line x1="400" y1="112" x2="400" y2="252" stroke="#1e1e22"/>
 
     <text x="440" y="132" font-size="12" letter-spacing="2.5" fill="#55555d">LANGUAGES</text>
-    <text x="440" y="206" font-family="Georgia,'Times New Roman',serif" font-size="72" fill="#e8e6e2">12</text>
+    <text x="440" y="206" font-family="Georgia,'Times New Roman',serif" font-size="72" fill="#e8e6e2">13</text>
     <text x="440" y="240" font-size="12" letter-spacing="1.5" fill="#5c5c64">rust · python · typescript lead</text>
 
     <line x1="800" y1="112" x2="800" y2="252" stroke="#1e1e22"/>
@@ -60,17 +60,17 @@
   <!-- languages bar (real byte share, /languages api) -->
   <text x="40" y="478" font-size="12" letter-spacing="2.5" fill="#55555d">LANGUAGES / BYTES</text>
     <g>
-    <rect x="40" y="492" width="441" height="10" fill="#e8e6e2"/>
-    <rect x="485" y="492" width="425" height="10" fill="#a5a5ad"/>
-    <rect x="914" y="492" width="362" height="10" fill="#6b6b73"/>
-    <rect x="1280" y="492" width="80" height="10" fill="#484850"/>
-    <rect x="1364" y="492" width="196" height="10" fill="#33333a"/>
+    <rect x="40" y="492" width="437" height="10" fill="#e8e6e2"/>
+    <rect x="481" y="492" width="424" height="10" fill="#a5a5ad"/>
+    <rect x="909" y="492" width="358" height="10" fill="#6b6b73"/>
+    <rect x="1271" y="492" width="79" height="10" fill="#484850"/>
+    <rect x="1354" y="492" width="206" height="10" fill="#33333a"/>
   </g>
     <g font-size="12" letter-spacing="1.5">
     <text x="40" y="530" fill="#e8e6e2">29% <tspan fill="#8a8a93">RUST</tspan></text>
-    <text x="485" y="530" fill="#a5a5ad">28% <tspan fill="#8a8a93">PYTHON</tspan></text>
-    <text x="914" y="530" fill="#6b6b73">24% <tspan fill="#8a8a93">TYPESCRIPT</tspan></text>
-    <text x="1280" y="530" fill="#484850">5% <tspan fill="#8a8a93">SHELL</tspan></text>
-    <text x="1560" y="530" text-anchor="end" fill="#55555d">13% OTHER</text>
+    <text x="481" y="530" fill="#a5a5ad">28% <tspan fill="#8a8a93">PYTHON</tspan></text>
+    <text x="909" y="530" fill="#6b6b73">24% <tspan fill="#8a8a93">TYPESCRIPT</tspan></text>
+    <text x="1271" y="530" fill="#484850">5% <tspan fill="#8a8a93">SHELL</tspan></text>
+    <text x="1560" y="530" text-anchor="end" fill="#55555d">14% OTHER</text>
   </g>
 </svg>
