@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 380" font-family="ui-monospace,'SF Mono',Menlo,Consolas,monospace">
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="380" viewBox="0 0 560 380" font-family="ui-monospace,'SF Mono',Menlo,Consolas,monospace">
   <rect width="560" height="380" fill="#0d1117"/>
 
   <rect x="20" y="32" width="3.5" height="18" fill="#b3372c"/>

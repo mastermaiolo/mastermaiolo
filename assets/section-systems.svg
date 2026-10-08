@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 118" font-family="ui-monospace,'SF Mono',Menlo,Consolas,monospace">
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="118" viewBox="0 0 1600 118" font-family="ui-monospace,'SF Mono',Menlo,Consolas,monospace">
   <rect width="1600" height="118" fill="#0d1117"/>
   <rect x="14" y="34" width="3.5" height="34" fill="#b3372c"/>
   <text x="30" y="52" font-size="20" letter-spacing="7" fill="#dcdce2">SELECTED SYSTEMS</text>

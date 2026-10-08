@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 660" font-family="ui-monospace,'SF Mono',Menlo,Consolas,monospace">
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="660" viewBox="0 0 1600 660" font-family="ui-monospace,'SF Mono',Menlo,Consolas,monospace">
   <defs>
     <linearGradient id="scrimL" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#0d1117"/>

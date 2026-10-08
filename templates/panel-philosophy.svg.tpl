@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 380" font-family="ui-monospace,'SF Mono',Menlo,Consolas,monospace">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="0 0 1000 380" font-family="ui-monospace,'SF Mono',Menlo,Consolas,monospace">
   <defs>
     <clipPath id="clipP"><rect x="560" y="0" width="440" height="380"/></clipPath>
     <linearGradient id="scrimP" x1="0" y1="0" x2="1" y2="0">
