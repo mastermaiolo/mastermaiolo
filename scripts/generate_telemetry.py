@@ -15,8 +15,7 @@ Stdlib only.
 import json, os, sys, datetime, pathlib, urllib.request
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from langbar import language_bar
-from build_assets import spark_points
+from langbar import language_bar, spark_points   # stdlib-only module
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 USER = os.environ.get("PROFILE_USER") or os.environ.get("GITHUB_REPOSITORY_OWNER") or "mastermaiolo"

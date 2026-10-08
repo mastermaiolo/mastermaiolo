@@ -11,7 +11,7 @@ import base64, io, json, datetime, pathlib, sys
 from PIL import Image
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from langbar import language_bar
+from langbar import language_bar, spark_points
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 TPL  = ROOT / "templates"
@@ -28,17 +28,6 @@ def data_uri(img: Image.Image, width: int, quality: int = 82) -> str:
     buf = io.BytesIO()
     img.convert("RGB").save(buf, "JPEG", quality=quality, optimize=True)
     return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
-
-def spark_points(counts, w=340, h=52, pad=2):
-    """Normalize a list of ints into an SVG polyline point string."""
-    mx = max(counts) or 1
-    n = len(counts)
-    pts = []
-    for i, c in enumerate(counts):
-        x = pad + i * (w - 2 * pad) / (n - 1)
-        y = h - pad - (c / mx) * (h - 2 * pad - 6)
-        pts.append(f"{x:.1f},{y:.1f}")
-    return " ".join(pts)
 
 def build_tokens():
     tokens = {}

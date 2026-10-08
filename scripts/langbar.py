@@ -4,6 +4,17 @@ Imported by build_assets.py (seed render) and generate_telemetry.py (Action refr
 
 PALETTE = ["#e8e6e2", "#a5a5ad", "#6b6b73", "#484850", "#33333a"]
 
+def spark_points(counts, w=340, h=52, pad=2):
+    """Normalize a list of ints into an SVG polyline point string."""
+    mx = max(counts) or 1
+    n = len(counts)
+    pts = []
+    for i, c in enumerate(counts):
+        x = pad + i * (w - 2 * pad) / (n - 1)
+        y = h - pad - (c / mx) * (h - 2 * pad - 6)
+        pts.append(f"{x:.1f},{y:.1f}")
+    return " ".join(pts)
+
 def language_bar(langs: dict, x0: int = 40, x1: int = 1560,
                  y: int = 492, h: int = 10, gap: int = 4):
     """langs: {name: bytes}. Returns (bars_svg, labels_svg) with top-4 + OTHER."""
