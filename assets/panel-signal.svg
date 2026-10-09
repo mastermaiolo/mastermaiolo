@@ -6,7 +6,7 @@
   <text x="540" y="44" text-anchor="end" font-size="10" letter-spacing="2" fill="#3f3f46">ACTIVITY / 14D</text>
 
   <!-- 14-day sparkline (seeded from real events; Action refreshes) -->
-  <polyline points="2.0,28.9 24.8,42.0 47.5,42.0 70.3,42.0 93.1,42.0 115.8,42.0 138.6,42.0 161.4,42.0 184.2,42.0 206.9,42.0 229.7,42.0 252.5,42.0 275.2,31.5 298.0,8.0" transform="translate(322 54) scale(0.72)" fill="none"
+  <polyline points="2.0,34.6 24.8,42.0 47.5,42.0 70.3,42.0 93.1,42.0 115.8,42.0 138.6,42.0 161.4,42.0 184.2,42.0 206.9,42.0 229.7,42.0 252.5,40.5 275.2,8.0 298.0,25.7" transform="translate(322 54) scale(0.72)" fill="none"
             stroke="#6b6b73" stroke-width="1.6" stroke-opacity="0.9"/>
   <line x1="20" y1="92" x2="540" y2="92" stroke="#1e1e22"/>
 
