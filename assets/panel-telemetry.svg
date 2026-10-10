@@ -32,7 +32,7 @@
     <line x1="800" y1="112" x2="800" y2="252" stroke="#1e1e22"/>
 
     <text x="840" y="132" font-size="12" letter-spacing="2.5" fill="#55555d">PUSHES / 90 DAYS</text>
-    <text x="840" y="206" font-family="Georgia,'Times New Roman',serif" font-size="72" fill="#e8e6e2">34</text>
+    <text x="840" y="206" font-family="Georgia,'Times New Roman',serif" font-size="72" fill="#e8e6e2">38</text>
     <text x="840" y="240" font-size="12" letter-spacing="1.5" fill="#5c5c64">public events window</text>
 
     <line x1="1200" y1="112" x2="1200" y2="252" stroke="#1e1e22"/>
@@ -47,8 +47,8 @@
   <text x="40" y="312" font-size="12" letter-spacing="2.5" fill="#55555d">ACTIVITY / 90 DAYS</text>
   <text x="1560" y="312" text-anchor="end" font-size="10.5" letter-spacing="2" fill="#3f3f46">events · pushes · releases</text>
   <g transform="translate(40 330) scale(4.47 1.55)">
-    <polygon points="2.0,50.0 21.8,50.0 41.5,50.0 61.3,50.0 81.1,50.0 100.8,50.0 120.6,50.0 140.4,50.0 160.1,50.0 179.9,50.0 199.6,50.0 219.4,50.0 239.2,50.0 258.9,46.4 278.7,32.0 298.5,44.0 318.2,50.0 338.0,8.0 340,52 0,52" fill="url(#areaG)" stroke="none"/>
-    <polyline points="2.0,50.0 21.8,50.0 41.5,50.0 61.3,50.0 81.1,50.0 100.8,50.0 120.6,50.0 140.4,50.0 160.1,50.0 179.9,50.0 199.6,50.0 219.4,50.0 239.2,50.0 258.9,46.4 278.7,32.0 298.5,44.0 318.2,50.0 338.0,8.0" fill="none" stroke="#8a8a93" stroke-width="1.1"/>
+    <polygon points="2.0,50.0 21.8,50.0 41.5,50.0 61.3,50.0 81.1,50.0 100.8,50.0 120.6,50.0 140.4,50.0 160.1,50.0 179.9,50.0 199.6,50.0 219.4,50.0 239.2,50.0 258.9,39.5 278.7,41.6 298.5,44.8 318.2,50.0 338.0,8.0 340,52 0,52" fill="url(#areaG)" stroke="none"/>
+    <polyline points="2.0,50.0 21.8,50.0 41.5,50.0 61.3,50.0 81.1,50.0 100.8,50.0 120.6,50.0 140.4,50.0 160.1,50.0 179.9,50.0 199.6,50.0 219.4,50.0 239.2,50.0 258.9,39.5 278.7,41.6 298.5,44.8 318.2,50.0 338.0,8.0" fill="none" stroke="#8a8a93" stroke-width="1.1"/>
   </g>
   <line x1="40" y1="412" x2="1580" y2="412" stroke="#1e1e22"/>
   <g fill="#55555d" font-size="10.5" letter-spacing="1.5">
